@@ -1,0 +1,348 @@
+:root {
+  color-scheme: light;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  color: #253126;
+  background: #f4f1e8;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgb(225 236 214 / 80%), transparent 34rem),
+    #f4f1e8;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(920px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 88px 0;
+}
+
+.hero {
+  max-width: 720px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #577052;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 16px;
+  font-size: clamp(2.25rem, 7vw, 4.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+}
+
+.intro {
+  margin-bottom: 32px;
+  color: #657064;
+  font-size: 1.05rem;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  padding: 8px;
+  border: 1px solid #d8d6c8;
+  border-radius: 18px;
+  background: rgb(255 255 255 / 88%);
+  box-shadow: 0 18px 60px rgb(64 78 61 / 12%);
+}
+
+.search-form input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 0;
+  outline: 0;
+  color: #253126;
+  background: transparent;
+}
+
+.search-form input::placeholder {
+  color: #91978e;
+}
+
+.search-form:focus-within {
+  border-color: #70896a;
+  box-shadow: 0 0 0 4px rgb(112 137 106 / 16%), 0 18px 60px rgb(64 78 61 / 12%);
+}
+
+.search-form button {
+  flex: 0 0 auto;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  background: #314d35;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.search-form button:hover {
+  background: #243d29;
+}
+
+.search-form button:focus-visible,
+.source-link:focus-visible {
+  outline: 3px solid #a8c39e;
+  outline-offset: 3px;
+}
+
+.results-section {
+  margin-top: 64px;
+}
+
+.results-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #d8d6c8;
+}
+
+.results-heading h2 {
+  margin-bottom: 0;
+  font-size: 1.15rem;
+}
+
+.result-count,
+.status-message {
+  color: #687267;
+}
+
+.status-message {
+  margin: 28px 0 0;
+}
+
+.product-results {
+  display: grid;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.product-card {
+  padding: 28px;
+  border: 1px solid #dedbcf;
+  border-radius: 20px;
+  background: rgb(255 255 255 / 82%);
+}
+
+.product-card h3 {
+  margin: 0 0 24px;
+  font-size: 1.6rem;
+}
+
+.product-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 32px;
+  margin: 0;
+}
+
+.product-details div {
+  min-width: 0;
+}
+
+.product-details dt {
+  margin-bottom: 5px;
+  color: #758073;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.product-details dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.source-link {
+  color: #315f3b;
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.source-age,
+.source-warning {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.source-age {
+  color: #687267;
+}
+
+.source-warning {
+  color: #80551c;
+}
+
+.nutrition-section {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #dedbcf;
+}
+
+.nutrition-section h4 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+}
+
+.nutrition-note {
+  color: #687267;
+  font-size: 0.85rem;
+}
+
+.nutrition-list {
+  margin: 0;
+}
+
+.nutrition-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #eeece3;
+}
+
+.nutrition-row dt {
+  font-weight: 700;
+}
+
+.nutrition-row dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.daily-reference {
+  display: block;
+  margin: 4px 0 8px;
+  color: #687267;
+  font-size: 0.85rem;
+}
+
+.nutrition-progress {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 8px;
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  appearance: none;
+  background: #e5e9de;
+}
+
+.nutrition-progress::-webkit-progress-bar {
+  border-radius: 999px;
+  background: #e5e9de;
+}
+
+.nutrition-progress::-webkit-progress-value {
+  border-radius: 999px;
+  background: #577052;
+}
+
+.nutrition-progress::-moz-progress-bar {
+  border-radius: 999px;
+  background: #577052;
+}
+
+.product-list {
+  display: grid;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.product-option {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  padding: 28px;
+  border: 1px solid #dedbcf;
+  border-radius: 20px;
+  text-align: left;
+  color: inherit;
+  background: rgb(255 255 255 / 82%);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.product-option strong {
+  font-size: 1.3rem;
+}
+
+.product-option span {
+  color: #687267;
+}
+
+.product-option:hover {
+  border-color: #70896a;
+}
+
+.product-option:focus-visible {
+  outline: 3px solid #a8c39e;
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .page-shell {
+    width: min(100% - 28px, 920px);
+    padding: 56px 0;
+  }
+
+  .search-form {
+    display: grid;
+  }
+
+  .search-form button {
+    width: 100%;
+  }
+
+  .results-section {
+    margin-top: 48px;
+  }
+
+  .product-details {
+    grid-template-columns: 1fr;
+  }
+}

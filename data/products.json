@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0",
+  "products": [
+    {
+      "id": "uni-pudding-100g",
+      "name": "統一布丁",
+      "brand": "統一",
+      "barcode": "4710088430922",
+      "serving": {
+        "amount": 100,
+        "unit": "g"
+      },
+      "nutrition": {
+        "calories": {
+          "value": 110,
+          "unit": "kcal"
+        },
+        "protein": {
+          "value": 2.1,
+          "unit": "g"
+        },
+        "fat": {
+          "value": 3.0,
+          "unit": "g"
+        },
+        "saturatedFat": {
+          "value": 2.7,
+          "unit": "g"
+        },
+        "transFat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "carbohydrates": {
+          "value": 18.7,
+          "unit": "g"
+        },
+        "sugar": {
+          "value": 16.0,
+          "unit": "g"
+        },
+        "sodium": {
+          "value": 60,
+          "unit": "mg"
+        }
+      },
+      "ingredients": [],
+      "additives": [
+        "香料",
+        "脂肪酸甘油酯",
+        "刺槐豆膠",
+        "鹿角菜膠",
+        "乳酸鈣",
+        "焦糖色素"
+      ],
+      "allergens": [
+        "牛奶製品",
+        "蛋製品"
+      ],
+      "nutritionSource": "pxgo",
+      "sources": [
+        {
+          "id": "pxgo",
+          "name": "全聯小時達商品資訊",
+          "url": "https://shop.pxgo.com.tw/hourArrive/goods/252871-21410008-4710088430922",
+          "verified_at": "2026-09-16"
+        }
+      ]
+    }
+  ]
+}

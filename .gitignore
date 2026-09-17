@@ -1,0 +1,26 @@
+# 本機環境與敏感設定
+.env
+.env.*
+!.env.example
+
+# 套件、快取與產出
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+dist/
+coverage/
+*.log
+
+# 編輯器與作業系統檔案
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 本機臨時瀏覽器測試頁與設定
+_*.html
+.edge-test-profile/
