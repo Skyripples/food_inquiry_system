@@ -8,6 +8,14 @@ const pageElements = {
   count: document.querySelector("#result-count"),
 };
 let pageState = PAGE_STATES.INITIAL;
+const dailyIntakeView = createDailyIntakeView({
+  store: dailyIntakeStore,
+  repository: productRepository,
+  container: document.querySelector("#daily-intake-items"),
+  emptyMessage: document.querySelector("#daily-intake-empty"),
+  clearButton: document.querySelector("#clear-daily-intake"),
+  totalsContainer: document.querySelector("#daily-nutrition-totals"),
+});
 
 function setPageState(state, count = null) {
   pageState = state;
@@ -21,7 +29,7 @@ function showProduct(productId, count) {
     return;
   }
   setPageState(PAGE_STATES.SUCCESS, count);
-  renderProductDetail(pageElements.results, product);
+  renderProductDetail(pageElements.results, product, dailyIntakeView.addProduct);
 }
 
 function handleSearch() {
@@ -56,6 +64,7 @@ async function initializeProducts() {
     // 可預期的載入失敗由頁面狀態處理，避免未捕捉例外。
     setPageState(PAGE_STATES.LOAD_ERROR);
   }
+  dailyIntakeView.render();
 }
 
 searchForm.addEventListener("submit", (event) => {
@@ -64,4 +73,5 @@ searchForm.addEventListener("submit", (event) => {
 });
 
 setPageState(PAGE_STATES.INITIAL);
+dailyIntakeView.render();
 initializeProducts();

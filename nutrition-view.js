@@ -20,15 +20,18 @@ function appendDailyReference(row, label, percentage) {
   row.querySelector("dd").append(referenceText, progress);
 }
 
-function createNutritionSection(nutrition) {
+function createNutritionSection(nutrition, {
+  title = "營養成分",
+  note: noteText = "每份含量與每日參考值百分比",
+} = {}) {
   const section = document.createElement("section");
   const heading = document.createElement("h4");
   const note = document.createElement("p");
   const list = document.createElement("dl");
   section.className = "nutrition-section";
-  heading.textContent = "營養成分";
+  heading.textContent = title;
   note.className = "nutrition-note";
-  note.textContent = "每份含量與每日參考值百分比";
+  note.textContent = noteText;
   list.className = "nutrition-list";
   Object.entries(NUTRITION_CONFIG).forEach(([key, config]) => {
     const nutrient = nutrition?.[key];

@@ -69,7 +69,7 @@ function createSourceTimingDetail(source) {
   return detail;
 }
 
-function createProductCard(product = {}) {
+function createProductCard(product = {}, onAddProduct) {
   const nutritionSource = resolveProductSource(product, product.nutritionSource);
   const card = document.createElement("article");
   const title = document.createElement("h3");
@@ -85,9 +85,17 @@ function createProductCard(product = {}) {
     createSourceTimingDetail(nutritionSource),
   );
   card.append(title, details, createNutritionSection(product.nutrition));
+  if (typeof onAddProduct === "function") {
+    const addButton = document.createElement("button");
+    addButton.type = "button";
+    addButton.className = "add-daily-intake-button";
+    addButton.textContent = "加入今日清單";
+    addButton.addEventListener("click", () => onAddProduct(product.id));
+    card.append(addButton);
+  }
   return card;
 }
 
-function renderProductDetail(container, product) {
-  container.replaceChildren(createProductCard(product));
+function renderProductDetail(container, product, onAddProduct) {
+  container.replaceChildren(createProductCard(product, onAddProduct));
 }

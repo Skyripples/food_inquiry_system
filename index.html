@@ -36,6 +36,16 @@
         <p id="status-message" class="status-message" role="status">請輸入關鍵字開始搜尋</p>
         <div id="product-results" class="product-results"></div>
       </section>
+
+      <section class="daily-intake-section" aria-labelledby="daily-intake-title">
+        <div class="results-heading">
+          <h2 id="daily-intake-title">今日食品清單</h2>
+          <button id="clear-daily-intake" class="clear-daily-intake-button" type="button">清空今日清單</button>
+        </div>
+        <p id="daily-intake-empty" class="status-message" role="status">今日尚未加入食品</p>
+        <div id="daily-intake-items"></div>
+        <div id="daily-nutrition-totals" hidden></div>
+      </section>
     </main>
 
     <script src="nutrition-config.js" defer></script>
@@ -48,6 +58,11 @@
     <script src="product-view.js" defer></script>
     <script src="nutrition-view.js" defer></script>
     <script src="results-view.js" defer></script>
+    <script src="daily-intake-store.js" defer></script>
+    <script src="daily-nutrition.js" defer></script>
+    <script src="daily-reference-status.js" defer></script>
+    <script src="daily-nutrition-view.js" defer></script>
+    <script src="daily-intake-view.js" defer></script>
     <script src="app.js" defer></script>
   </body>
 </html>

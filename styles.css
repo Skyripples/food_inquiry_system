@@ -265,12 +265,28 @@ h1 {
 
 .nutrition-progress::-webkit-progress-value {
   border-radius: 999px;
-  background: #577052;
+  background: var(--progress-fill, #577052);
 }
 
 .nutrition-progress::-moz-progress-bar {
   border-radius: 999px;
-  background: #577052;
+  background: var(--progress-fill, #577052);
+}
+
+.nutrition-progress[data-reference-state="near"] {
+  --progress-fill: #9b773a;
+}
+
+.nutrition-progress[data-reference-state="reached"] {
+  --progress-fill: #4e6b84;
+}
+
+.daily-reference-status {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #687267;
 }
 
 .product-list {
@@ -308,6 +324,70 @@ h1 {
 }
 
 .product-option:focus-visible {
+  outline: 3px solid #a8c39e;
+  outline-offset: 3px;
+}
+
+.daily-intake-section {
+  margin-top: 64px;
+}
+
+.daily-intake-list {
+  display: grid;
+  gap: 20px;
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+
+.daily-intake-item {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid #dedbcf;
+  border-radius: 20px;
+  background: rgb(255 255 255 / 82%);
+}
+
+.daily-intake-item h3 {
+  margin: 0 0 20px;
+  overflow-wrap: anywhere;
+}
+
+.daily-intake-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.daily-intake-actions button,
+.clear-daily-intake-button,
+.add-daily-intake-button {
+  padding: 10px 14px;
+  border: 1px solid #bac5b4;
+  border-radius: 10px;
+  color: #314d35;
+  background: #f5f7f0;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.add-daily-intake-button {
+  margin-top: 24px;
+  border-color: #314d35;
+  color: #fff;
+  background: #314d35;
+}
+
+.daily-intake-actions button:disabled,
+.clear-daily-intake-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.daily-intake-actions button:focus-visible,
+.clear-daily-intake-button:focus-visible,
+.add-daily-intake-button:focus-visible {
   outline: 3px solid #a8c39e;
   outline-offset: 3px;
 }
