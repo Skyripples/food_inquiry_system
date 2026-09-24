@@ -23,8 +23,8 @@ function renderDailyNutrition(container, items, repository) {
   if (items.length === 0) return;
   const totals = calculateDailyNutrition(items, repository);
   const section = createNutritionSection(totals, {
-    title: "今日營養總計",
-    note: "依今日清單數量計算；缺資料的營養項目顯示「目前尚無資料」。",
+    title: "營養累加總計",
+    note: "依累加清單數量計算；缺資料的營養項目顯示「目前尚無資料」。",
   });
   applyDailyReferenceStatuses(section, totals);
   container.append(section);

@@ -89,7 +89,7 @@ function createProductCard(product = {}, onAddProduct) {
     const addButton = document.createElement("button");
     addButton.type = "button";
     addButton.className = "add-daily-intake-button";
-    addButton.textContent = "加入今日清單";
+    addButton.textContent = "加入累加清單";
     addButton.addEventListener("click", () => onAddProduct(product.id));
     card.append(addButton);
   }
