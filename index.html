@@ -15,17 +15,24 @@
         <h1>市售食品查詢</h1>
         <p class="intro">輸入商品名稱、品牌或條碼，查找食品的基本資訊。</p>
 
-        <form id="search-form" class="search-form" role="search">
-          <label class="sr-only" for="search-input">搜尋食品</label>
-          <input
-            id="search-input"
-            name="query"
-            type="search"
-            placeholder="輸入商品名稱、品牌或條碼"
-            autocomplete="off"
-          >
-          <button type="submit">搜尋</button>
-        </form>
+        <div class="search-area">
+          <form id="search-form" class="search-form" role="search">
+            <label class="sr-only" for="search-input">搜尋食品</label>
+            <input
+              id="search-input"
+              name="query"
+              type="search"
+              placeholder="輸入商品名稱、品牌或條碼"
+              autocomplete="off"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-expanded="false"
+              aria-controls="search-suggestions"
+            >
+            <button type="submit">搜尋</button>
+          </form>
+          <ul id="search-suggestions" class="search-suggestions" role="listbox" hidden></ul>
+        </div>
       </header>
 
       <section class="results-section" aria-labelledby="results-title">
@@ -59,6 +66,7 @@
     <script src="nutrition-view.js" defer></script>
     <script src="ingredients-view.js" defer></script>
     <script src="results-view.js" defer></script>
+    <script src="search-suggestions.js" defer></script>
     <script src="daily-intake-store.js" defer></script>
     <script src="daily-nutrition.js" defer></script>
     <script src="daily-reference-status.js" defer></script>

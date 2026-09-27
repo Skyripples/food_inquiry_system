@@ -16,6 +16,14 @@ const dailyIntakeView = createDailyIntakeView({
   clearButton: document.querySelector("#clear-daily-intake"),
   totalsContainer: document.querySelector("#daily-nutrition-totals"),
 });
+const searchSuggestions = createSearchSuggestions({
+  input: pageElements.input,
+  container: document.querySelector("#search-suggestions"),
+  repository: productRepository,
+  onSelect(product) {
+    showProduct(product.id, 1);
+  },
+});
 
 function setPageState(state, count = null) {
   pageState = state;
@@ -69,6 +77,7 @@ async function initializeProducts() {
 
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
+  searchSuggestions.close();
   handleSearch();
 });
 
