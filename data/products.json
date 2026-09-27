@@ -214,6 +214,346 @@
           "verified_at": "2026-09-27"
         }
       ]
+    },
+    {
+      "id": "茶裏王-日式無糖綠茶-600ml-4710088630223",
+      "name": "統一茶裏王-日式無糖綠茶 600ml",
+      "brand": "茶裏王",
+      "barcode": "4710088630223",
+      "serving": {
+        "amount": 120,
+        "unit": "ml"
+      },
+      "nutrition": {
+        "calories": {
+          "value": 0,
+          "unit": "kcal"
+        },
+        "protein": {
+          "value": 0,
+          "unit": "g"
+        },
+        "fat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "saturatedFat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "transFat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "carbohydrates": {
+          "value": 0,
+          "unit": "g"
+        },
+        "sugar": {
+          "value": 0,
+          "unit": "g"
+        },
+        "sodium": {
+          "value": 14,
+          "unit": "mg"
+        }
+      },
+      "ingredients": [
+        {
+          "name": "水",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "綠茶",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "綠茶萃取液",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "維生素C(抗氧化劑)",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "香料",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "小蘇打",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "食鹽",
+          "sourceId": "pxgo"
+        }
+      ],
+      "nutritionSource": "pxgo",
+      "sources": [
+        {
+          "id": "pxgo",
+          "name": "全聯小時達",
+          "url": "https://shop.pxgo.com.tw/hourArrive/goods/251131-06170007-4710088630223",
+          "verified_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "茶裏王-日式無糖綠茶-1250ml-4710088633842",
+      "name": "統一茶裏王-日式無糖綠茶 1250ml",
+      "brand": "茶裏王",
+      "barcode": "4710088633842",
+      "serving": {
+        "amount": 125,
+        "unit": "ml"
+      },
+      "nutrition": {
+        "calories": {
+          "value": 0,
+          "unit": "kcal"
+        },
+        "protein": {
+          "value": 0,
+          "unit": "g"
+        },
+        "fat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "saturatedFat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "transFat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "carbohydrates": {
+          "value": 0,
+          "unit": "g"
+        },
+        "sugar": {
+          "value": 0,
+          "unit": "g"
+        },
+        "sodium": {
+          "value": 15,
+          "unit": "mg"
+        }
+      },
+      "ingredients": [
+        {
+          "name": "水",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "綠茶",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "綠茶萃取液",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "維生素C(抗氧化劑)",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "香料",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "小蘇打",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "食鹽",
+          "sourceId": "pxgo"
+        }
+      ],
+      "nutritionSource": "pxgo",
+      "sources": [
+        {
+          "id": "pxgo",
+          "name": "全聯小時達",
+          "url": "https://shop.pxgo.com.tw/hourArrive/goods/251134-06160064-4710088633842",
+          "verified_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "茶裏王-台式綠茶-600ml-4710088630216",
+      "name": "統一茶裏王-台式綠茶 600ml",
+      "brand": "茶裏王",
+      "barcode": "4710088630216",
+      "serving": {
+        "amount": 120,
+        "unit": "ml"
+      },
+      "nutrition": {
+        "calories": {
+          "value": 22,
+          "unit": "kcal"
+        },
+        "protein": {
+          "value": 0,
+          "unit": "g"
+        },
+        "fat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "saturatedFat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "transFat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "carbohydrates": {
+          "value": 5.4,
+          "unit": "g"
+        },
+        "sugar": {
+          "value": 5,
+          "unit": "g"
+        },
+        "sodium": {
+          "value": 14,
+          "unit": "mg"
+        }
+      },
+      "ingredients": [
+        {
+          "name": "水",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "蔗糖",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "茉莉綠茶",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "綠茶萃取液",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "青茶",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "香料",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "維生素C(抗氧化劑)",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "小蘇打",
+          "sourceId": "pxgo"
+        }
+      ],
+      "nutritionSource": "pxgo",
+      "sources": [
+        {
+          "id": "pxgo",
+          "name": "全聯小時達",
+          "url": "https://shop.pxgo.com.tw/hourArrive/goods/251130-06170006-4710088630216",
+          "verified_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "茶裏王-台式綠茶-1250ml-4710088633835",
+      "name": "統一茶裏王-台式綠茶 1250ml",
+      "brand": "茶裏王",
+      "barcode": "4710088633835",
+      "serving": {
+        "amount": 125,
+        "unit": "ml"
+      },
+      "nutrition": {
+        "calories": {
+          "value": 22,
+          "unit": "kcal"
+        },
+        "protein": {
+          "value": 0,
+          "unit": "g"
+        },
+        "fat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "saturatedFat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "transFat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "carbohydrates": {
+          "value": 5.6,
+          "unit": "g"
+        },
+        "sugar": {
+          "value": 5.2,
+          "unit": "g"
+        },
+        "sodium": {
+          "value": 15,
+          "unit": "mg"
+        }
+      },
+      "ingredients": [
+        {
+          "name": "水",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "蔗糖",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "茉莉綠茶",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "綠茶萃取液",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "青茶",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "香料",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "維生素C(抗氧化劑)",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "小蘇打",
+          "sourceId": "pxgo"
+        }
+      ],
+      "nutritionSource": "pxgo",
+      "sources": [
+        {
+          "id": "pxgo",
+          "name": "全聯小時達",
+          "url": "https://shop.pxgo.com.tw/hourArrive/goods/251133-06160063-4710088633835",
+          "verified_at": "2026-09-27"
+        }
+      ]
     }
   ]
 }
