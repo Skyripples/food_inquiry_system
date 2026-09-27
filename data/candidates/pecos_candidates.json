@@ -1,0 +1,336 @@
+{
+  "generated_at": "2026-09-27T10:57:22.562267Z",
+  "catalog_file": "pecos_catalog.json.gz",
+  "tested_product_count": 5,
+  "results": [
+    {
+      "product_name": "綠茶玉露入り",
+      "brand": "茶裏王",
+      "catalog_source": "https://www.pecos.com.tw/brands-%E8%8C%B6%E8%A3%8F%E7%8E%8B.html",
+      "candidates": [
+        {
+          "source_name": "統一企業集團 PECOS 商品資料",
+          "source_url": "https://www.pecos.com.tw/brands-%E8%8C%B6%E8%A3%8F%E7%8E%8B.html",
+          "barcode": null,
+          "specification": "600ml",
+          "serving": {
+            "amount": 600,
+            "unit": "ml",
+            "text": "600ml"
+          },
+          "nutrition": {},
+          "ingredients": [],
+          "matched_name": "綠茶玉露入り",
+          "match_score": 1.0
+        }
+      ]
+    },
+    {
+      "product_name": "伯爵紅茶",
+      "brand": "茶裏王",
+      "catalog_source": "https://www.pecos.com.tw/brands-%E8%8C%B6%E8%A3%8F%E7%8E%8B.html",
+      "candidates": [
+        {
+          "source_name": "統一企業集團 PECOS 商品資料",
+          "source_url": "https://www.pecos.com.tw/brands-%E8%8C%B6%E8%A3%8F%E7%8E%8B.html",
+          "barcode": null,
+          "specification": "600ml",
+          "serving": {
+            "amount": 600,
+            "unit": "ml",
+            "text": "600ml"
+          },
+          "nutrition": {},
+          "ingredients": [],
+          "matched_name": "伯爵紅茶",
+          "match_score": 1.0
+        }
+      ]
+    },
+    {
+      "product_name": "四季春茶",
+      "brand": "茶裏王",
+      "catalog_source": "https://www.pecos.com.tw/brands-%E8%8C%B6%E8%A3%8F%E7%8E%8B.html",
+      "candidates": [
+        {
+          "source_name": "統一企業集團 PECOS 商品資料",
+          "source_url": "https://www.pecos.com.tw/brands-%E8%8C%B6%E8%A3%8F%E7%8E%8B.html",
+          "barcode": null,
+          "specification": "600ml",
+          "serving": {
+            "amount": 600,
+            "unit": "ml",
+            "text": "600ml"
+          },
+          "nutrition": {},
+          "ingredients": [],
+          "matched_name": "四季春茶",
+          "match_score": 1.0
+        }
+      ]
+    },
+    {
+      "product_name": "日式無糖綠茶",
+      "brand": "茶裏王",
+      "catalog_source": "https://www.pecos.com.tw/brands-%E8%8C%B6%E8%A3%8F%E7%8E%8B.html",
+      "candidates": [
+        {
+          "source_name": "統一企業集團 PECOS 商品資料",
+          "source_url": "https://www.pecos.com.tw/brands-%E8%8C%B6%E8%A3%8F%E7%8E%8B.html",
+          "barcode": null,
+          "specification": "600ml/975ml/1250ml",
+          "serving": {
+            "text": "600ml/975ml/1250ml"
+          },
+          "nutrition": {},
+          "ingredients": [],
+          "matched_name": "日式無糖綠茶",
+          "match_score": 1.0
+        },
+        {
+          "source_name": "全聯小時達",
+          "source_url": "https://shop.pxgo.com.tw/hourArrive/goods/251131-06170007-4710088630223",
+          "matched_name": "統一茶裏王-日式無糖綠茶 600ml",
+          "barcode": "4710088630223",
+          "specification": "600ml",
+          "serving": {
+            "amount": 120,
+            "unit": "ml"
+          },
+          "nutrition": {
+            "calories": {
+              "value": 0,
+              "unit": "kcal"
+            },
+            "protein": {
+              "value": 0,
+              "unit": "g"
+            },
+            "fat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "saturatedFat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "transFat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "carbohydrates": {
+              "value": 0,
+              "unit": "g"
+            },
+            "sugar": {
+              "value": 0,
+              "unit": "g"
+            },
+            "sodium": {
+              "value": 14,
+              "unit": "mg"
+            }
+          },
+          "ingredients": [
+            "水",
+            "綠茶",
+            "綠茶萃取液",
+            "維生素C(抗氧化劑)",
+            "香料",
+            "小蘇打",
+            "食鹽"
+          ],
+          "match_score": 0.72
+        },
+        {
+          "source_name": "全聯小時達",
+          "source_url": "https://shop.pxgo.com.tw/hourArrive/goods/251134-06160064-4710088633842",
+          "matched_name": "統一茶裏王-日式無糖綠茶 1250ml",
+          "barcode": "4710088633842",
+          "specification": "1250ml",
+          "serving": {
+            "amount": 125,
+            "unit": "ml"
+          },
+          "nutrition": {
+            "calories": {
+              "value": 0,
+              "unit": "kcal"
+            },
+            "protein": {
+              "value": 0,
+              "unit": "g"
+            },
+            "fat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "saturatedFat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "transFat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "carbohydrates": {
+              "value": 0,
+              "unit": "g"
+            },
+            "sugar": {
+              "value": 0,
+              "unit": "g"
+            },
+            "sodium": {
+              "value": 15,
+              "unit": "mg"
+            }
+          },
+          "ingredients": [
+            "水",
+            "綠茶",
+            "綠茶萃取液",
+            "維生素C(抗氧化劑)",
+            "香料",
+            "小蘇打",
+            "食鹽"
+          ],
+          "match_score": 0.6923
+        }
+      ]
+    },
+    {
+      "product_name": "台式綠茶",
+      "brand": "茶裏王",
+      "catalog_source": "https://www.pecos.com.tw/brands-%E8%8C%B6%E8%A3%8F%E7%8E%8B.html",
+      "candidates": [
+        {
+          "source_name": "統一企業集團 PECOS 商品資料",
+          "source_url": "https://www.pecos.com.tw/brands-%E8%8C%B6%E8%A3%8F%E7%8E%8B.html",
+          "barcode": null,
+          "specification": "600ml/975ml/1250ml",
+          "serving": {
+            "text": "600ml/975ml/1250ml"
+          },
+          "nutrition": {},
+          "ingredients": [],
+          "matched_name": "台式綠茶",
+          "match_score": 1.0
+        },
+        {
+          "source_name": "全聯小時達",
+          "source_url": "https://shop.pxgo.com.tw/hourArrive/goods/251130-06170006-4710088630216",
+          "matched_name": "統一茶裏王-台式綠茶 600ml",
+          "barcode": "4710088630216",
+          "specification": "600ml",
+          "serving": {
+            "amount": 120,
+            "unit": "ml"
+          },
+          "nutrition": {
+            "calories": {
+              "value": 22,
+              "unit": "kcal"
+            },
+            "protein": {
+              "value": 0,
+              "unit": "g"
+            },
+            "fat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "saturatedFat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "transFat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "carbohydrates": {
+              "value": 5.4,
+              "unit": "g"
+            },
+            "sugar": {
+              "value": 5,
+              "unit": "g"
+            },
+            "sodium": {
+              "value": 14,
+              "unit": "mg"
+            }
+          },
+          "ingredients": [
+            "水",
+            "蔗糖",
+            "茉莉綠茶",
+            "綠茶萃取液",
+            "青茶",
+            "香料",
+            "維生素C(抗氧化劑)",
+            "小蘇打"
+          ],
+          "match_score": 0.6667
+        },
+        {
+          "source_name": "全聯小時達",
+          "source_url": "https://shop.pxgo.com.tw/hourArrive/goods/251133-06160063-4710088633835",
+          "matched_name": "統一茶裏王-台式綠茶 1250ml",
+          "barcode": "4710088633835",
+          "specification": "1250ml",
+          "serving": {
+            "amount": 125,
+            "unit": "ml"
+          },
+          "nutrition": {
+            "calories": {
+              "value": 22,
+              "unit": "kcal"
+            },
+            "protein": {
+              "value": 0,
+              "unit": "g"
+            },
+            "fat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "saturatedFat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "transFat": {
+              "value": 0,
+              "unit": "g"
+            },
+            "carbohydrates": {
+              "value": 5.6,
+              "unit": "g"
+            },
+            "sugar": {
+              "value": 5.2,
+              "unit": "g"
+            },
+            "sodium": {
+              "value": 15,
+              "unit": "mg"
+            }
+          },
+          "ingredients": [
+            "水",
+            "蔗糖",
+            "茉莉綠茶",
+            "綠茶萃取液",
+            "青茶",
+            "香料",
+            "維生素C(抗氧化劑)",
+            "小蘇打"
+          ],
+          "match_score": 0.6364
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
