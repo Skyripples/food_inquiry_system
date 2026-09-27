@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "食品商品資料 V1.0",
-  "description": "定義 products.json 的文件與商品格式，沿用現有欄位名稱。",
+  "title": "食品商品資料 V2.0",
+  "description": "定義 products.json 的文件、商品與正式食品成分格式。",
   "type": "object",
   "required": ["schemaVersion", "products"],
   "properties": {
@@ -41,6 +41,32 @@
     "stringList": {
       "type": "array",
       "items": { "type": "string" }
+    },
+    "ingredientRatio": {
+      "description": "來源有公開比例時才提供；不得由應用程式自行推算。",
+      "type": "object",
+      "required": ["value", "unit"],
+      "properties": {
+        "value": { "type": "number", "minimum": 0 },
+        "unit": { "$ref": "#/$defs/nonEmptyString" }
+      },
+      "additionalProperties": false
+    },
+    "ingredient": {
+      "description": "單一食品成分；sourceId 引用同一商品 sources 陣列中的來源 id。",
+      "type": "object",
+      "required": ["name", "sourceId"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "ratio": { "$ref": "#/$defs/ingredientRatio" },
+        "sourceId": { "$ref": "#/$defs/nonEmptyString" }
+      },
+      "additionalProperties": false
+    },
+    "ingredientList": {
+      "description": "依食品標示的原始順序保存成分；JSON 陣列順序即為標示順序。",
+      "type": "array",
+      "items": { "$ref": "#/$defs/ingredient" }
     },
     "date": {
       "type": "string",
@@ -88,7 +114,7 @@
           "$ref": "#/$defs/nutrition",
           "description": "每份營養。"
         },
-        "ingredients": { "$ref": "#/$defs/stringList" },
+        "ingredients": { "$ref": "#/$defs/ingredientList" },
         "additives": { "$ref": "#/$defs/stringList" },
         "allergens": { "$ref": "#/$defs/stringList" },
         "nutritionSource": {

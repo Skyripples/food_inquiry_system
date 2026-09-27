@@ -84,7 +84,12 @@ function createProductCard(product = {}, onAddProduct) {
     createSourceDetail(nutritionSource),
     createSourceTimingDetail(nutritionSource),
   );
-  card.append(title, details, createNutritionSection(product.nutrition));
+  card.append(
+    title,
+    details,
+    createNutritionSection(product.nutrition),
+    createIngredientsSection(product),
+  );
   if (typeof onAddProduct === "function") {
     const addButton = document.createElement("button");
     addButton.type = "button";

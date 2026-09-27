@@ -44,7 +44,80 @@
           "unit": "mg"
         }
       },
-      "ingredients": [],
+      "ingredients": [
+        {
+          "name": "水",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "蔗糖",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "乳粉",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "椰子油",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "麥芽糖",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "玉米澱粉",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "刺槐豆膠",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "香料",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "焦糖色素",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "脂肪酸甘油酯",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "鹿角菜膠（鹿角菜膠、蔗糖）",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "食鹽",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "塔拉膠",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "黃梔子色素",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "鹿角菜膠（鹿角菜膠、葡萄糖）",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "紅麴色素",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "乳酸鈣",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "全蛋粉",
+          "sourceId": "pxgo"
+        }
+      ],
       "additives": [
         "香料",
         "脂肪酸甘油酯",
@@ -64,6 +137,81 @@
           "name": "全聯小時達商品資訊",
           "url": "https://shop.pxgo.com.tw/hourArrive/goods/252871-21410008-4710088430922",
           "verified_at": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "uni-sunshine-golden-soy-milk-400ml",
+      "name": "統一陽光黃金豆豆漿",
+      "brand": "統一陽光",
+      "barcode": "4710088432742",
+      "serving": {
+        "amount": 400,
+        "unit": "ml"
+      },
+      "nutrition": {
+        "calories": {
+          "value": 234,
+          "unit": "kcal"
+        },
+        "protein": {
+          "value": 14.0,
+          "unit": "g"
+        },
+        "fat": {
+          "value": 8.4,
+          "unit": "g"
+        },
+        "saturatedFat": {
+          "value": 1.6,
+          "unit": "g"
+        },
+        "transFat": {
+          "value": 0,
+          "unit": "g"
+        },
+        "carbohydrates": {
+          "value": 25.6,
+          "unit": "g"
+        },
+        "sugar": {
+          "value": 19.2,
+          "unit": "g"
+        },
+        "sodium": {
+          "value": 108,
+          "unit": "mg"
+        }
+      },
+      "ingredients": [
+        {
+          "name": "水",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "非基因改造黃豆",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "蔗糖",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "異麥芽寡糖",
+          "sourceId": "pxgo"
+        },
+        {
+          "name": "食鹽",
+          "sourceId": "pxgo"
+        }
+      ],
+      "nutritionSource": "pxgo",
+      "sources": [
+        {
+          "id": "pxgo",
+          "name": "全聯小時達",
+          "url": "https://shop.pxgo.com.tw/hourArrive/goods/253424-21320049-4710088432742",
+          "verified_at": "2026-09-27"
         }
       ]
     }
