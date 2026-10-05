@@ -1,8 +1,31 @@
 # 市售食品查詢系統
 
-V1.2.0｜發布標籤：`V1.2.0`
+目前版本：V2.5.0｜發布標籤：`V2.5.0`
 
 以原生 HTML、CSS 與 JavaScript 建立的食品查詢系統。商品資料由 Product Repository 載入與驗證，再交由搜尋及畫面顯示使用。
+
+## V2.5.0
+
+- 新增 TFDA 食品追溯追蹤資料蒐集器，官方來源為政府資料開放平臺的「食品追溯追蹤系統消費者查詢資料集」。
+- 完整蒐集並以 gzip 保存 50,650 筆商品原始紀錄，不自行補正來源內容。
+- 其中 10,752 筆具有完整 8 項每份營養，2,030 筆具有內容物標示，1,894 筆同時具有完整營養與內容物標示。
+- 建立 TFDA 商品完整度分類器，分為 `complete_nutrition`、`has_ingredients`、`complete_nutrition_and_ingredients` 與 `incomplete`。
+- `traceabilityCode` 與 `barcode` 明確分離；食品追溯追蹤串接碼不會被視為或轉換成商品條碼。
+- anomaly 保留原始資料並只作標記，不自行修正。共有 14 筆異常紀錄、77 個 anomaly 項目；原始與 processed 資料逐筆比對後確認沒有遺失。
+- 原始資料 `data/raw/tfda_traceability.json.gz` 與篩選結果 `data/processed/tfda_products_usable.json.gz` 均使用 gzip 壓縮保存。
+
+### V2.5.0 資料工具
+
+| 檔案 | 職責 |
+|---|---|
+| `module/collect_tfda_traceability.py` | 下載官方 ZIP、保留原始欄位、解析可用營養欄位並原子寫入 gzip |
+| `module/filter_tfda_products.py` | 依營養與內容物完整度分類，保留串接碼與 anomaly |
+| `data/raw/tfda_traceability.json.gz` | TFDA 原始與結構化商品紀錄，共 50,650 筆 |
+| `data/processed/tfda_products_usable.json.gz` | TFDA 商品完整度分類結果，共 50,650 筆 |
+
+## V1.2.0
+
+發布標籤：`V1.2.0`
 
 ## 已完成功能
 
