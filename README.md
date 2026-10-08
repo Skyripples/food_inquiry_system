@@ -1,8 +1,25 @@
 # 市售食品查詢系統
 
-目前版本：V2.6.0｜發布標籤：`V2.6.0`
+目前版本：V2.7.0｜發布標籤：`V2.7.0`
 
 以原生 HTML、CSS 與 JavaScript 建立的食品查詢系統。商品資料由 Product Repository 載入與驗證，再交由搜尋及畫面顯示使用。
+
+## V2.7.0
+
+- 新增 TFDA 候選正式商品資格分析器，依現有 `product-schema.json` 的實際 required 與型別規則分析 1,894 筆候選。
+- 將 Schema 技術資格與資料完整度分開判定，不把非必要的 `brand`、`barcode`、`serving` 或 `ingredients` 誤判為 required 欄位。
+- 1,894 筆候選均具有可對應的 `id` 與 `name`，在省略無效 optional 欄位且不推測資料時可通過目前 Schema。
+- 全部候選缺少品牌與商品條碼；`companyName` 不自動作為品牌，`traceabilityCode` 不自動作為條碼。
+- 2 筆缺少可轉換 serving，46 筆成分解析失敗；若仍要求 serving、完整 8 項營養與可解析成分齊全，可安全轉換 1,846 筆。
+- 分析結果保留 `candidateId`、`traceabilityCode`、Schema 狀態與所有缺失原因，同一候選可同時具有多個問題。
+- 分析結果以 gzip JSON 保存於 `data/processed/tfda_promotion_analysis.json.gz`，本版本不修改正式商品資料或 Schema。
+
+### V2.7.0 資料工具
+
+| 檔案 | 職責 |
+|---|---|
+| `module/analyze_tfda_promotion.py` | 依正式 Schema 分析 TFDA 候選的技術資格與資料完整度缺口 |
+| `data/processed/tfda_promotion_analysis.json.gz` | 1,894 筆候選的資格、缺失原因與統計結果 |
 
 ## V2.6.0
 
