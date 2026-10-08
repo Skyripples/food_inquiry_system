@@ -1,8 +1,24 @@
 # 市售食品查詢系統
 
-目前版本：V2.8.0｜發布標籤：`V2.8.0`
+目前版本：V2.9.0｜發布標籤：`V2.9.0`
 
 以原生 HTML、CSS 與 JavaScript 建立的食品查詢系統。商品資料由 Product Repository 載入與驗證，再交由搜尋及畫面顯示使用。
+
+## V2.9.0
+
+- 新增 TFDA 高完整度候選批次匯入 dry-run 工具，只處理 serving 有效、8 項營養完整且成分可正常解析的候選。
+- 1,894 筆候選中有 1,846 筆符合轉換條件；2 筆 serving 無效、46 筆成分解析失敗，營養結構不完整為 0 筆。
+- 1,846 筆轉換結果全部通過正式商品 Schema；候選 id、追溯碼及既有正式商品衝突均為 0，最終可安全匯入數為 1,846 筆。
+- 欄位轉換保留 `manufacturer` 與 `traceabilityCode` 的原始語意，不產生 `brand` 或 `barcode`，也不將製造業者視為品牌或將追溯碼視為商品條碼。
+- 成分維持原始順序並建立有效 `sourceId`；TFDA 官方資料轉為正式 `sources` 與 `nutritionSource`。
+- 24 組、共 77 筆具有相同公司、商品名稱與規格的可轉換候選不自動合併，不同 `traceabilityCode` 仍維持獨立。
+- 本工具僅執行記憶體內 dry-run，沒有正式匯入或修改 `products.json`。
+
+### V2.9.0 資料工具
+
+| 檔案 | 職責 |
+|---|---|
+| `module/promote_tfda_candidates.py` | 轉換高完整度 TFDA 候選，執行 Schema、重複識別碼及既有正式商品衝突檢查；僅輸出 dry-run 統計 |
 
 ## V2.8.0
 
