@@ -11,7 +11,9 @@ from __future__ import annotations
 import argparse
 import gzip
 import json
+import os
 import sys
+import tempfile
 from collections import Counter
 from pathlib import Path
 
@@ -365,11 +367,151 @@ def analyze_dry_run(
     }
 
 
+def build_eligible_products(
+    candidate_document: dict[str, object],
+) -> list[dict[str, object]]:
+    candidates = candidate_document.get("candidates")
+    if not isinstance(candidates, list):
+        raise PromotionDryRunError("candidate document has no candidates array")
+    return [
+        build_product(candidate)
+        for candidate in candidates
+        if isinstance(candidate, dict) and is_eligible(candidate)
+    ]
+
+
+def validate_unique_products(products: list[object]) -> None:
+    ids: list[str] = []
+    traceability_codes: list[str] = []
+    for product in products:
+        if not isinstance(product, dict):
+            raise PromotionDryRunError("formal products contain a non-object value")
+        product_id = product.get("id")
+        if not non_empty_string(product_id):
+            raise PromotionDryRunError("formal product has no valid id")
+        ids.append(str(product_id).strip())
+        traceability_code = product.get("traceabilityCode")
+        if non_empty_string(traceability_code):
+            traceability_codes.append(str(traceability_code).strip())
+
+    duplicate_ids = duplicate_values(ids)
+    if duplicate_ids:
+        raise PromotionDryRunError(
+            f"formal products contain {len(duplicate_ids)} duplicate id values"
+        )
+    duplicate_codes = duplicate_values(traceability_codes)
+    if duplicate_codes:
+        raise PromotionDryRunError(
+            "formal products contain "
+            f"{len(duplicate_codes)} duplicate traceabilityCode values"
+        )
+
+
+def atomic_write_validated_json(
+    path: Path,
+    document: dict[str, object],
+    schema: dict[str, object],
+) -> None:
+    descriptor, temporary_name = tempfile.mkstemp(
+        dir=path.parent,
+        prefix=f".{path.name}.",
+        suffix=".tmp",
+    )
+    temporary = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as output:
+            json.dump(document, output, ensure_ascii=False, indent=2)
+            output.write("\n")
+            output.flush()
+            os.fsync(output.fileno())
+
+        reloaded = load_json(temporary)
+        if not isinstance(reloaded, dict):
+            raise PromotionDryRunError("temporary products document is not an object")
+        reloaded_products = reloaded.get("products")
+        if not isinstance(reloaded_products, list):
+            raise PromotionDryRunError("temporary products document has no products array")
+        validate_unique_products(reloaded_products)
+        validate_document(reloaded, schema)
+        if reloaded != document:
+            raise PromotionDryRunError("temporary products document changed during encoding")
+        os.replace(temporary, path)
+    except BaseException:
+        temporary.unlink(missing_ok=True)
+        raise
+
+
+def apply_promotion(
+    candidate_document: dict[str, object],
+    products_document: dict[str, object],
+    schema: dict[str, object],
+    products_path: Path,
+    result: dict[str, object],
+    expected_count: int | None,
+) -> None:
+    required_zero_counts = (
+        "conversion_failure_count",
+        "schema_failure_count",
+        "duplicate_id_record_count",
+        "duplicate_traceability_code_record_count",
+        "existing_formal_product_conflict_count",
+    )
+    if any(result.get(key) != 0 for key in required_zero_counts):
+        raise PromotionDryRunError("dry-run contains failures or identity conflicts")
+    if result.get("batch_schema_validation") != "pass":
+        raise PromotionDryRunError("dry-run batch Schema validation did not pass")
+    safe_count = result.get("final_safe_import_count")
+    if not isinstance(safe_count, int) or safe_count <= 0:
+        raise PromotionDryRunError("dry-run has no safely importable candidates")
+    if expected_count is not None and safe_count != expected_count:
+        raise PromotionDryRunError(
+            f"expected {expected_count} safe candidates, found {safe_count}"
+        )
+
+    existing_products = products_document.get("products")
+    if not isinstance(existing_products, list):
+        raise PromotionDryRunError("products document has no products array")
+    promoted_products = build_eligible_products(candidate_document)
+    if len(promoted_products) != safe_count:
+        raise PromotionDryRunError(
+            "eligible product count changed after the final dry-run"
+        )
+    final_products = [*existing_products, *promoted_products]
+    validate_unique_products(final_products)
+    final_document = {**products_document, "products": final_products}
+    validate_document(final_document, schema)
+    atomic_write_validated_json(products_path, final_document, schema)
+
+    # Verify the installed file again after the atomic replacement.
+    installed = load_json(products_path)
+    if not isinstance(installed, dict) or installed != final_document:
+        raise PromotionDryRunError("installed products document failed final comparison")
+    validate_document(installed, schema)
+    validate_unique_products(installed["products"])
+    result.update({
+        "mode": "apply",
+        "products_json_modified": True,
+        "imported_count": len(promoted_products),
+        "final_product_count": len(installed["products"]),
+        "products_json_size_bytes": products_path.stat().st_size,
+    })
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidates", type=Path, default=DEFAULT_CANDIDATES)
     parser.add_argument("--products", type=Path, default=DEFAULT_PRODUCTS)
     parser.add_argument("--schema", type=Path, default=DEFAULT_SCHEMA)
+    parser.add_argument(
+        "--apply",
+        action="store_true",
+        help="atomically append all safe candidates after a successful dry-run",
+    )
+    parser.add_argument(
+        "--expected-count",
+        type=int,
+        help="refuse --apply unless the safe candidate count matches this value",
+    )
     return parser.parse_args()
 
 
@@ -382,10 +524,24 @@ def main() -> int:
         if not all(isinstance(value, dict) for value in (candidates, products, schema)):
             raise PromotionDryRunError("all input document roots must be objects")
         result = analyze_dry_run(candidates, products, schema)
+        if args.apply:
+            apply_promotion(
+                candidates,
+                products,
+                schema,
+                args.products.resolve(),
+                result,
+                args.expected_count,
+            )
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0 if result["batch_schema_validation"] == "pass" else 1
-    except (OSError, json.JSONDecodeError, PromotionDryRunError) as error:
-        print(f"dry-run failed: {error}", file=sys.stderr)
+    except (
+        OSError,
+        json.JSONDecodeError,
+        PromotionDryRunError,
+        SchemaValidationError,
+    ) as error:
+        print(f"promotion failed: {error}", file=sys.stderr)
         return 1
 
 

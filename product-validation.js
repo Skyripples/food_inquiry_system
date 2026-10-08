@@ -56,12 +56,15 @@ function validateProductSource(source, warn) {
   if (!id || !name || !url) return undefined;
   try {
     if (["http:", "https:"].includes(new URL(url).protocol)) {
-      let verifiedAt = source.verified_at;
-      if (parseVerificationDate(verifiedAt) === null) {
-        warn("verified_at 缺失或不是有效的 YYYY-MM-DD 日期");
-        verifiedAt = undefined;
+      const validatedSource = { id, name, url };
+      if (Object.hasOwn(source, "verified_at")) {
+        if (parseVerificationDate(source.verified_at) === null) {
+          warn("verified_at 不是有效的 YYYY-MM-DD 日期");
+        } else {
+          validatedSource.verified_at = source.verified_at;
+        }
       }
-      return { id, name, url, verified_at: verifiedAt };
+      return validatedSource;
     }
   } catch {
     // 無效 URL 僅警告，不拋出至載入流程。

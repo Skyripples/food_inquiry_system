@@ -1,8 +1,24 @@
 # 市售食品查詢系統
 
-目前版本：V2.9.0｜發布標籤：`V2.9.0`
+目前版本：V2.10.0｜發布標籤：`V2.10.0`
 
 以原生 HTML、CSS 與 JavaScript 建立的食品查詢系統。商品資料由 Product Repository 載入與驗證，再交由搜尋及畫面顯示使用。
+
+## V2.10.0
+
+- 使用既有 TFDA 批次 promotion 工具正式匯入 1,846 筆 serving、8 項營養與成分皆完整的候選；其餘 48 筆未匯入。
+- 正式商品由 6 筆增加為 1,852 筆；原有 6 筆逐物件完整保留，全部商品 id 唯一，1,846 個 `traceabilityCode` 亦全部唯一。
+- 匯入商品保留 `manufacturer`、`traceabilityCode`、serving、nutrition、ingredients 與 sources，不產生 `brand` 或 `barcode`，不同追溯碼商品不合併。
+- promotion 工具新增明確的 `--apply` 與預期筆數防護，寫入前再次檢查 Schema 與識別碼衝突，並以暫存檔驗證後原子替換 `products.json`。
+- 搜尋新增 `manufacturer` 與 `traceabilityCode`，支援完整或部分文字匹配，並保留名稱、品牌與條碼搜尋。
+- `source.verified_at` 缺省時視為合法 optional 欄位，不產生警告；欄位存在但日期格式錯誤時仍會警告，畫面缺少日期時維持顯示「資料更新時間未知」。
+- 實際 1,852 筆資料回歸測試通過；正常資料載入為 0 error、0 非預期 warning，320px 版面無水平溢位。
+
+### V2.10.0 資料工具
+
+| 檔案 | 職責 |
+|---|---|
+| `module/promote_tfda_candidates.py` | dry-run 檢查或以 `--apply` 原子匯入全部安全候選；支援預期筆數防護與寫入後驗證 |
 
 ## V2.9.0
 
