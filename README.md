@@ -1,8 +1,16 @@
 # 市售食品查詢系統
 
-目前版本：V2.7.0｜發布標籤：`V2.7.0`
+目前版本：V2.8.0｜發布標籤：`V2.8.0`
 
 以原生 HTML、CSS 與 JavaScript 建立的食品查詢系統。商品資料由 Product Repository 載入與驗證，再交由搜尋及畫面顯示使用。
+
+## V2.8.0
+
+- 正式商品 Schema 新增 optional `manufacturer`，用於保存 TFDA 的製造業者名稱，且不將製造業者視為品牌。
+- 正式商品 Schema 新增 optional 字串 `traceabilityCode`，用於保存食品追溯追蹤系統串接碼，且不將追溯碼視為商品條碼。
+- 商品驗證層支援 `manufacturer` 與 `traceabilityCode`，並允許合法省略 `brand` 與 `barcode`。
+- 商品基本資訊在有資料時顯示「製造業者」與「食品追溯碼」；缺少商品條碼時維持顯示「目前尚無資料」。
+- 現有 6 筆正式商品資料維持不變，本版本不批次匯入 TFDA 候選。
 
 ## V2.7.0
 

@@ -15,6 +15,11 @@ function validateProductText(value, field, warn) {
   return undefined;
 }
 
+function validateOptionalProductText(value, field, warn) {
+  if (value === undefined) return undefined;
+  return validateProductText(value, field, warn);
+}
+
 function validateProductQuantity(value, field, warn, expectedUnit, valueKey = "amount") {
   if (!isProductRecord(value) || !Number.isFinite(value[valueKey]) || value[valueKey] < 0 ||
       !isProductText(value.unit) || (expectedUnit && value.unit !== expectedUnit)) {
@@ -122,19 +127,27 @@ function validateProducts(records) {
     }
     if (!id || !name) return;
 
-    const brand = validateProductText(product.brand, "brand", warn);
-    let barcode = validateProductText(product.barcode, "barcode", warn);
+    const brand = validateOptionalProductText(product.brand, "brand", warn);
+    const manufacturer = validateOptionalProductText(
+      product.manufacturer, "manufacturer", warn,
+    );
+    let barcode = validateOptionalProductText(product.barcode, "barcode", warn);
     if (barcode && !/^\d+$/.test(barcode)) {
       warn("barcode 必須是純數字字串");
       barcode = undefined;
     }
+    const traceabilityCode = validateOptionalProductText(
+      product.traceabilityCode, "traceabilityCode", warn,
+    );
     const sources = validateProductSources(product.sources, warn);
     validated.push({
       ...product,
       id,
       name,
       brand,
+      manufacturer,
       barcode,
+      traceabilityCode,
       serving: validateProductQuantity(product.serving, "serving", warn),
       nutrition: validateProductNutrition(product.nutrition, warn),
       sources,

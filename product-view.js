@@ -77,9 +77,15 @@ function createProductCard(product = {}, onAddProduct) {
   card.className = "product-card";
   title.textContent = displayValue(product.name);
   details.className = "product-details";
+  details.append(createDetail("品牌", product.brand));
+  if (hasDisplayValue(product.manufacturer)) {
+    details.append(createDetail("製造業者", product.manufacturer));
+  }
+  details.append(createDetail("條碼", product.barcode));
+  if (hasDisplayValue(product.traceabilityCode)) {
+    details.append(createDetail("食品追溯碼", product.traceabilityCode));
+  }
   details.append(
-    createDetail("品牌", product.brand),
-    createDetail("條碼", product.barcode),
     createDetail("每份規格", formatQuantity(product.serving, "", "amount")),
     createSourceDetail(nutritionSource),
     createSourceTimingDetail(nutritionSource),

@@ -105,7 +105,15 @@
         "id": { "$ref": "#/$defs/nonEmptyString" },
         "name": { "$ref": "#/$defs/nonEmptyString" },
         "brand": { "type": "string" },
+        "manufacturer": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "製造業者名稱；不等同於品牌。"
+        },
         "barcode": { "type": "string" },
+        "traceabilityCode": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "食品追溯追蹤系統串接碼；不等同於商品條碼。"
+        },
         "serving": {
           "$ref": "#/$defs/quantity",
           "description": "每份規格。"
