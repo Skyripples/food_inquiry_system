@@ -29,6 +29,22 @@ function renderPageState(elements, state, count = null) {
   elements.button.disabled = disabled;
 }
 
+function getProductSummaryParts(product = {}) {
+  const parts = [];
+  if (hasDisplayValue(product.brand)) {
+    parts.push(`品牌：${product.brand.trim()}`);
+  } else if (hasDisplayValue(product.manufacturer)) {
+    parts.push(`製造業者：${product.manufacturer.trim()}`);
+  }
+
+  if (hasDisplayValue(product.barcode)) {
+    parts.push(`條碼：${product.barcode.trim()}`);
+  } else if (hasDisplayValue(product.traceabilityCode)) {
+    parts.push(`食品追溯碼：${product.traceabilityCode.trim()}`);
+  }
+  return parts;
+}
+
 function renderProductList(container, matches, onSelect) {
   const list = document.createElement("ul");
   list.className = "product-list";
@@ -36,12 +52,16 @@ function renderProductList(container, matches, onSelect) {
     const item = document.createElement("li");
     const button = document.createElement("button");
     const name = document.createElement("strong");
-    const summary = document.createElement("span");
     button.type = "button";
     button.className = "product-option";
     name.textContent = displayValue(product.name);
-    summary.textContent = `品牌：${displayValue(product.brand)} · 條碼：${displayValue(product.barcode)}`;
-    button.append(name, summary);
+    button.append(name);
+    const summaryParts = getProductSummaryParts(product);
+    if (summaryParts.length > 0) {
+      const summary = document.createElement("span");
+      summary.textContent = summaryParts.join(" · ");
+      button.append(summary);
+    }
     button.addEventListener("click", () => onSelect(product));
     item.append(button);
     list.append(item);
